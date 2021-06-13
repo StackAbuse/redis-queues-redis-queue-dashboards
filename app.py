@@ -15,5 +15,5 @@ def count_visit():
 
 @app.route('/')
 def return_visit_count():
-    count = Redis().get('count').decode('utf-8')
+    count = Redis().get('count').decode('utf-8') if Redis().get('count') else '0'
     return (f'<h1> Congrats! Your are the visitor no.: {count} </h1>')
